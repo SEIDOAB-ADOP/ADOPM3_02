@@ -11,7 +11,7 @@ namespace ADOPM3_02_18
             CompanyResponse += AlarmResponseCompany2; // Assign another delegate for multicast
             CompanyResponse += AlarmResponseCompany3; // Assign yet another delegate for multicast
 
-            CompanyResponse(1); // Invoke delegate - shorthand, Multicast 3 delegates
+            CompanyResponse.Invoke(1); // Invoke delegate - shorthand, Multicast 3 delegates
 
             CompanyResponse -= AlarmResponseCompany2; // Remove one particular delegate
             CompanyResponse(1); // Invoke delegate - shorthand, Multicast 2 delegates
@@ -33,6 +33,7 @@ namespace ADOPM3_02_18
         static string theResponse(string Company, int priority) =>
             (priority) switch
             {
+                0 => $"{Company} All Good",
                 1 => $"{Company} Critical Level",
                 2 => $"{Company} Moderate Level",
                 3 => $"{Company} Easy Level",

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPM3_02_21", "ADOPM3_02_2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPM3_02_15", "ADOPM3_02_15\ADOPM3_02_15.csproj", "{51F71052-553C-4C66-ADCC-58C75D1E1F6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPM3_02_18a", "ADOPM2_02_18a\ADOPM3_02_18a.csproj", "{DD9608EA-C5BE-4381-87FB-7B135E410312}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{51F71052-553C-4C66-ADCC-58C75D1E1F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51F71052-553C-4C66-ADCC-58C75D1E1F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51F71052-553C-4C66-ADCC-58C75D1E1F6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9608EA-C5BE-4381-87FB-7B135E410312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9608EA-C5BE-4381-87FB-7B135E410312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9608EA-C5BE-4381-87FB-7B135E410312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9608EA-C5BE-4381-87FB-7B135E410312}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
