@@ -1,17 +1,15 @@
 ﻿using System;
+using System.Drawing;
 
 namespace ADOPM3_02_21
 {	
 	public class Stock
 	{
-		string symbol;
+		public string Symbol {get; set;}
 		decimal price;
-		public Stock(string symbol) { this.symbol = symbol; }
+		public Stock(string symbol) { this.Symbol = symbol; }
 		public event EventHandler<(decimal, decimal)> PriceChanged; //Broadcaster event
-		protected virtual void OnPriceChanged((decimal, decimal) e)
-		{
-			PriceChanged?.Invoke(this, e); // Invoke if not null
-		}
+		protected virtual void OnPriceChanged((decimal, decimal) e) => PriceChanged?.Invoke(this,e);
 
 		public decimal Price
 		{
@@ -37,7 +35,8 @@ namespace ADOPM3_02_21
 		}
 		static void ReportPriceChange(object sender, (decimal oldPrice, decimal newPrice) e) //Subscriber eventhandler implementation
 		{
-			Console.WriteLine($"Price changed from {e.oldPrice} to {e.newPrice}");
+			var s = sender as Stock;
+			Console.WriteLine($"{s.Symbol}: Price changed from {e.oldPrice} to {e.newPrice}");
 		}
 	}
 

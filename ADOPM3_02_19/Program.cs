@@ -5,12 +5,11 @@ namespace ADOPM3_02_19
 {
 	public class Stock
 	{
-		public string Symbol { get; set; }
-		public Stock(string symbol) { this.Symbol = symbol; }
-
 		public event Action<string, decimal, decimal> PriceChanged;
 		public event Action<string, decimal, decimal> PriceChangedUp20;
 		public event Action<string, decimal, decimal> PriceChangedDown20;
+
+		public string Symbol { get; set; }
 
 		decimal _price;
 		public decimal Price
@@ -21,8 +20,9 @@ namespace ADOPM3_02_19
 				if (_price == value) return;         // Exit if nothing has changed
 				decimal oldPrice = _price;
 				_price = value;
-				PriceChanged?.Invoke(Symbol, oldPrice, _price);
 
+
+				PriceChanged?.Invoke(Symbol, oldPrice, _price);
 				if (_price >= oldPrice * 1.2M)
                 {
 					PriceChangedUp20?.Invoke(Symbol, oldPrice, _price);
@@ -33,6 +33,11 @@ namespace ADOPM3_02_19
 				}
 			}
 		}
+		public Stock(string symbol) 
+		{ 
+			this.Symbol = symbol; 
+		}
+
 	}
 	class Program
     {
@@ -40,6 +45,7 @@ namespace ADOPM3_02_19
         {
 			var stock1 = new Stock("MSFT");
 			stock1.PriceChanged += Alarm;
+			stock1.PriceChanged += Alarm1;
 			stock1.PriceChangedDown20 += AlarmSell;
 			stock1.PriceChangedUp20 += AlarmBuy;
 			stock1.Price = 1500;
@@ -61,6 +67,10 @@ namespace ADOPM3_02_19
 		static void Alarm(string symbol, decimal oldprice, decimal newprice)
         {
             Console.WriteLine($"{symbol} Price Changed from {oldprice} to {newprice}");
+        }
+		static void Alarm1(string symbol, decimal oldprice, decimal newprice)
+        {
+            Console.WriteLine($"Alarm1: {symbol} Price Changed from {oldprice} to {newprice}");
         }
 		static void AlarmSell(string symbol, decimal oldprice, decimal newprice)
 		{
