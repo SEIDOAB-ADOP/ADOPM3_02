@@ -1,0 +1,25 @@
+﻿using System;
+namespace ADOPM3_02_18a
+{
+	public class ServiceMan
+	{
+		public ServiceMan(FactoryMonitor fm)
+		{
+            fm.AlarmStatus += SendServiceMan;
+        }
+
+        public void SendServiceMan(int priority)
+        {
+            if (priority >= 3)
+            {
+                Console.WriteLine("Service man sent");
+            }
+            else
+            {
+                Console.WriteLine("No need for service, relax");
+            }
+        }
+
+    }
+}
+
